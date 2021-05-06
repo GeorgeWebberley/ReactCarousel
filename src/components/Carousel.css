@@ -1,0 +1,28 @@
+.carousel-container {
+  height: 400px;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+}
+
+/* Majority of arrows styles placed here to keep the arrow component reusable */
+.back {
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  left: 20px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.forwards {
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  right: 20px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
