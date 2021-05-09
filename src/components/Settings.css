@@ -1,0 +1,15 @@
+.settings-container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
+  font-size: 2rem;
+  width: 300px;
+}
+.form-group input {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}

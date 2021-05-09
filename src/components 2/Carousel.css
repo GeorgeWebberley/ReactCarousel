@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 /* Majority of arrows styles placed here to keep the arrow component reusable */
@@ -67,4 +67,59 @@
 
 .right {
   transform: translateX(100%);
+}
+
+.slide-right {
+  animation: slide-right 0.8s ease;
+}
+
+@keyframes slide-right {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.slide-left {
+  animation: slide-left 0.8s ease;
+}
+
+@keyframes slide-left {
+  0% {
+    /* opacity: 0; */
+    transform: translateX(100%);
+  }
+  100% {
+    /* opacity: 1; */
+    transform: translateX(0);
+  }
+}
+.slide-right-old {
+  animation: slide-right-old 0.8s ease;
+}
+
+@keyframes slide-right-old {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.slide-left-old {
+  animation: slide-left-old 0.8s ease;
+}
+
+@keyframes slide-left-old {
+  0% {
+    /* opacity: 0; */
+    transform: translateX(100%);
+  }
+  100% {
+    /* opacity: 1; */
+    transform: translateX(0);
+  }
 }

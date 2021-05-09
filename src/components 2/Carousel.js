@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Arrow from "./Arrow";
 import "./Carousel.css";
 import CarouselIndex from "./CarouselIndex";
@@ -10,15 +10,9 @@ const Carousel = ({ items, itemsPerPage }) => {
   const [swipeEnd, setSwipeEnd] = useState(0); // for swipe gestures.
   const [currentIndex, setCurrentIndex] = useState(0); // Keeps track of the 'page' in the carousel.
   const [currentDirection, setCurrentDirection] = useState(""); // Stores state of the direction the carousel moves in.
+  const [oldDirection, setOldDirection] = useState(""); // Stores state of the direction the carousel moves in.
   const [oldItemsSide, setOldItemsSide] = useState(""); // Stores state of the side that the old carousel items should move to (left or right).
   const [prevItems, setPrevItems] = useState([]); // Stores state of the side that the old carousel items should move to.
-  const [carouselWidth, setCarouselWidth] = useState(0); // Stores state of the side that the old carousel items should move to.
-
-  // Get the width of the carousel
-  const ref = useRef(null);
-  useEffect(() => {
-    setCarouselWidth(ref.current ? ref.current.offsetWidth : 0);
-  }, [ref.current]);
 
   let currentItemsDOM = []; // An array that will hold the virtual dom elements to be rendered
   let oldItemsDOM = []; // An array that will hold the virtual dom elements to be rendered
@@ -32,25 +26,11 @@ const Carousel = ({ items, itemsPerPage }) => {
   const updateCarousel = () => {
     // Create a virtual dom element for each of the items in the subarray
     currentItems.forEach((item) => {
-      currentItemsDOM.push(
-        <CarouselItem
-          key={item.key}
-          content={item}
-          direction={currentDirection}
-          width={carouselWidth}
-        />
-      );
+      currentItemsDOM.push(<CarouselItem key={item.key} content={item} />);
     });
 
     prevItems.forEach((item) => {
-      oldItemsDOM.push(
-        <CarouselItem
-          key={item.key}
-          content={item}
-          direction={currentDirection}
-          width={carouselWidth}
-        />
-      );
+      oldItemsDOM.push(<CarouselItem key={item.key} content={item} />);
     });
   };
 
@@ -111,7 +91,6 @@ const Carousel = ({ items, itemsPerPage }) => {
 
   return (
     <div
-      ref={ref}
       className="carousel-container"
       onTouchStart={(touchStartEvent) => handleSwipeStart(touchStartEvent)}
       onTouchMove={(touchMoveEvent) => handleSwipeMove(touchMoveEvent)}
@@ -135,8 +114,12 @@ const Carousel = ({ items, itemsPerPage }) => {
       >
         <Arrow />
       </div>
-      <div className={`old-view ${oldItemsSide}`}>{oldItemsDOM}</div>
-      <div className="current-view"> {currentItemsDOM}</div>
+      <div className={`old-view ${oldItemsSide} ${currentDirection}`}>
+        {oldItemsDOM}
+      </div>
+      <div className={`current-view ${currentDirection}`}>
+        {currentItemsDOM}
+      </div>
 
       <div className="items-index">
         <CarouselIndex

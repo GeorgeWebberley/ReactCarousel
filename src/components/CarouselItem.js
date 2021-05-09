@@ -1,12 +1,8 @@
 import React from "react";
 import "./CarouselItem.css";
 
-const CarouselItem = ({itemNumber}) => {
-    return (
-        <div className='item-container'>
-            <h1>{itemNumber}</h1>
-        </div>
-    );
-}
+const CarouselItem = ({ content, direction, width }) => {
+  return <div className={`item-container ${direction}`}>{content}</div>;
+};
 
 export default CarouselItem;
