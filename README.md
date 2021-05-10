@@ -30,7 +30,7 @@ npm start
 
 The carousel accepts two props:
 
-| Prop         | Description                                                                                                                                                                   |
-| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| items        | An array of items to display. Each item must have a unique _key_ and can be either an HTML element or a component. **NOTE: Each item in the array must have a unique _key_.** |
-| itemsPerPage | An integer. Must be positive and less than the length of the items array.                                                                                                     |
+| Prop         | Description                                                                                                                                      |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| items        | An array of items to display. Each item can be either an HTML element or a component. **NOTE: Each item in the array must have a unique _key_.** |
+| itemsPerPage | An integer. Must be positive and less than the length of the items array.                                                                        |
