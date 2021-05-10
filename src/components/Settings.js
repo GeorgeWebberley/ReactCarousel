@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Settings.css";
 
+
+// Made for the demo - user can set number of items and items per page
 const Settings = ({ updateNumberItems, updateItemsPerPage, numberOfItems }) => {
   // Checks that the itemsPerPage does not exceed the number of items, and that it is not less than 0
   const validateInput = (value) => {

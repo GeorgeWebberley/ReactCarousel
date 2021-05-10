@@ -1,8 +1,8 @@
 import React from "react";
 import "./CarouselItem.css";
 
-const CarouselItem = ({ content, direction, width }) => {
-  const translateDistance = {};
+// Container for the items in the carousel
+const CarouselItem = ({ content, direction }) => {
 
   return <div className={`item-container ${direction}`}>{content}</div>;
 };

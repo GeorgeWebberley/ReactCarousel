@@ -19,9 +19,7 @@ function App() {
 
   return (
     <div className="container">
-      {/* <div className="padding"> */}
       <Carousel items={content} itemsPerPage={itemsPerPage} />
-      {/* </div> */}
       <Title />
       <Settings
         updateItemsPerPage={setItemsPerPage}

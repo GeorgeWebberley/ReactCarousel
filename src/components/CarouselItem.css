@@ -1,7 +1,4 @@
 .item-container {
-  width: 150px;
-  height: 150px;
-  background-color: pink;
   display: flex;
   justify-content: center;
   align-items: center;
