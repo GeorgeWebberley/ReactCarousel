@@ -1,12 +1,10 @@
 # React Carousel Project
 
----
-
 This is a simple carousel created using only React core, HTML and CSS.
 
-## Setup
-
 ---
+
+## Setup
 
 After downloading the project, install dependencies using:
 
@@ -26,9 +24,9 @@ And run the app using:
 npm start
 ```
 
-## Description
-
 ---
+
+## Description
 
 The carousel accepts two props:
 
