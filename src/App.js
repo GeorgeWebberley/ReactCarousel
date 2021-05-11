@@ -19,13 +19,15 @@ function App() {
 
   return (
     <div className="container">
-      <Carousel items={content} itemsPerPage={itemsPerPage} />
-      <Title />
-      <Settings
-        updateItemsPerPage={setItemsPerPage}
-        updateNumberItems={setNumberOfItems}
-        numberOfItems={numberOfItems}
-      />
+      <div className="padding">
+        <Carousel items={content} itemsPerPage={itemsPerPage} />
+        <Title />
+        <Settings
+          updateItemsPerPage={setItemsPerPage}
+          updateNumberItems={setNumberOfItems}
+          numberOfItems={numberOfItems}
+        />
+      </div>
     </div>
   );
 }

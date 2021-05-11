@@ -11,8 +11,6 @@
   overflow: hidden;
 }
 
-
-
 /* Majority of arrows styles placed here to keep the arrow component reusable */
 .back {
   position: absolute;
@@ -39,7 +37,7 @@
   bottom: 10px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 480px) {
   .back {
     display: none;
   }

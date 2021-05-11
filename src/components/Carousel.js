@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { useContainerWidth } from "../hooks/useContainerWidth";
 import Arrow from "./Arrow";
 import "./Carousel.css";
 import CarouselIndex from "./CarouselIndex";
@@ -12,6 +13,15 @@ const Carousel = ({ items, itemsPerPage }) => {
   const [currentDirection, setCurrentDirection] = useState(""); // Stores state of the direction the carousel moves in.
   const [oldItemsSide, setOldItemsSide] = useState(""); // Stores state of the side that the old carousel items should move to (left or right).
   const [prevItems, setPrevItems] = useState([]); // Stores state of the side that the old carousel items should move to.
+  // const [carouselWidth, setCarouselWidth] = useState(0); // Stores state of the side that the old carousel items should move to.
+
+  // Get the width of the carousel
+  const ref = useRef(null);
+  const carouselWidth = useContainerWidth(ref);
+
+  // useEffect(() => {
+  //   setCarouselWidth(ref.current ? ref.current.offsetWidth : 0);
+  // }, [ref.current]);
 
   let currentItemsDOM = []; // An array that will hold the virtual dom elements to be rendered
   let oldItemsDOM = []; // An array that will hold the virtual dom elements to be rendered
@@ -30,6 +40,7 @@ const Carousel = ({ items, itemsPerPage }) => {
           key={item.key}
           content={item}
           direction={currentDirection}
+          width={carouselWidth}
         />
       );
     });
@@ -40,6 +51,7 @@ const Carousel = ({ items, itemsPerPage }) => {
           key={item.key}
           content={item}
           direction={currentDirection}
+          width={carouselWidth}
         />
       );
     });
@@ -102,6 +114,7 @@ const Carousel = ({ items, itemsPerPage }) => {
 
   return (
     <div
+      ref={ref}
       className="carousel-container"
       onTouchStart={(touchStartEvent) => handleSwipeStart(touchStartEvent)}
       onTouchMove={(touchMoveEvent) => handleSwipeMove(touchMoveEvent)}
